@@ -1,14 +1,14 @@
-import { sha256 } from "crypto-js";
+import sha256 from "crypto-js/sha256";
 
-class Block {
+export class Block {
     public index: number;
     public previousHash: string;
-    public timestamp: number;
+    public timestamp: Date;
     public data: string;
     public nonce: number;
     public hash: string;
 
-    constructor(index: number, timestamp: number, data: string, nonce: number, previousHash: string = "") {
+    constructor(index: number, timestamp: Date, data: string, nonce: number, previousHash: string = "") {
         this.index = index;
         this.previousHash = previousHash;
         this.timestamp = timestamp;
@@ -17,12 +17,13 @@ class Block {
         this.hash = this.calculateHash();
     }
 
-    private calculateHash(): string {
-        return sha256(this.index.toString() + this.previousHash + this.timestamp.toString() + this.data + this.nonce.toString());
+    calculateHash(): string {
+        const hash = sha256(this.index.toString() + this.previousHash + this.timestamp.toString() + this.data + this.nonce.toString());
+        // console.log('Hash: ' + hash.toString());
+        return hash.toString();
     }
 
     mineBlock(difficulty: number): void {
-        this.nonce = 0;
         const aim = "0".repeat(difficulty);
         while (this.hash.substring(0, difficulty) !== aim) {
             this.nonce++;
@@ -31,5 +32,3 @@ class Block {
         console.log("Block mined: " + this.index + " " + this.hash);
     }
 }
-
-export default Block;

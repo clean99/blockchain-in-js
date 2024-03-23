@@ -1,0 +1,23 @@
+{
+  "name": "blockchain-in",
+  "version": "1.0.0",
+  "description": "Simple blockchain implementation in Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clean99/blockchain-in-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clean99/blockchain-in-js/issues"
+  },
+  "homepage": "https://github.com/clean99/blockchain-in-js#readme",
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  }
+}

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/clean99/blockchain-in-js#readme",
   "dependencies": {
+    "@types/node": "^20.11.30",
     "crypto-js": "^4.2.0"
   }
 }
